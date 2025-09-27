@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>إدارة المهام</h1>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form id="add-task-form" class="form-inline">
+            <input type="text" id="new-task-title" placeholder="أضف مهمة جديدة..." required>
+            <button type="submit" class="btn btn-primary">+ إضافة مهمة</button>
+        </form>
+    </div>
+</div>
+
+<div class="tasks-container">
+    <h2>المهام النشطة</h2>
+    <div id="active-tasks-list" class="tasks-list">
+        <!-- Active tasks will be dynamically inserted here -->
+    </div>
+
+    <h2>المهام المكتملة</h2>
+    <div id="completed-tasks-list" class="tasks-list">
+        <!-- Completed tasks will be dynamically inserted here -->
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+{% endblock %}
+
+{% endblock %}

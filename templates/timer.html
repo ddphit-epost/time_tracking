@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="timer-container card">
+    <div class="timer-display">00:00:00</div>
+    <div class="timer-controls">
+        <input type="text" id="timer-task-title" placeholder="ماذا تعمل عليه؟">
+        <div class="project-selectors">
+            <select id="project-select">
+                <option value="">اختر مشروعًا</option>
+                <!-- Projects will be loaded here dynamically -->
+            </select>
+            <select id="subproject-select">
+                <option value="">اختر مشروعًا فرعيًا</option>
+                <!-- Subprojects will be loaded here dynamically -->
+            </select>
+        </div>
+        <div class="timer-buttons">
+            <button id="start-work-btn" class="btn btn-primary">بدء العمل</button>
+            <button id="start-meeting-btn" class="btn btn-secondary">بدء اجتماع</button>
+            <button id="manual-entry-btn" class="btn btn-tertiary">إدخال يدوي</button>
+        </div>
+         <button id="stop-btn" class="btn btn-danger" style="display: none;">إيقاف</button>
+    </div>
+</div>
+
+<div class="timeline-container">
+    <h2>الجدول الزمني لهذا اليوم</h2>
+    <div id="timeline">
+        <!-- Time entries will be dynamically inserted here -->
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>التقارير</h1>
+</div>
+
+<div class="card">
+    <div class="card-body" id="report-filters">
+        <div class="form-group">
+            <label for="start-date">من تاريخ:</label>
+            <input type="date" id="start-date">
+        </div>
+        <div class="form-group">
+            <label for="end-date">إلى تاريخ:</label>
+            <input type="date" id="end-date">
+        </div>
+        <div class="form-group">
+            <label for="report-project-select">المشروع:</label>
+            <select id="report-project-select">
+                <option value="">الكل</option>
+                <!-- Projects loaded here -->
+            </select>
+        </div>
+        <button id="generate-report-btn" class="btn btn-primary">إنشاء تقرير</button>
+        <a href="#" id="export-csv-btn" class="btn btn-secondary">تصدير CSV</a>
+    </div>
+</div>
+
+<div class="card-deck" id="report-summary">
+    <!-- Summary stats will be injected here -->
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>الإدخالات المفصلة</h3>
+    </div>
+    <div class="card-body">
+        <table id="report-table">
+            <thead>
+                <tr>
+                    <th>العنوان</th>
+                    <th>المشروع</th>
+                    <th>وقت البدء</th>
+                    <th>وقت الانتهاء</th>
+                    <th>المدة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Report data will be injected here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/reports.js') }}"></script>
+{% endblock %}
+
+{% endblock %}
